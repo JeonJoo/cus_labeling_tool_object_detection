@@ -19,7 +19,7 @@ from functools import partial
 from collections import defaultdict
 
 # JH
-# 기본경로 -> D:\AI_SVT_Training
+# 기본경로 -> Detection_training
 # xml 데이터 수량 파악 추가
 # 라벨 데이터 없을 때 예외 처리.
 ##2022_0420 JH : label_name 숫자, 문자 가능(정렬x)
@@ -1462,8 +1462,8 @@ class MainWindow(QMainWindow, WindowMixin):
                 for xml_file in filenames:
                     shutil.copy(xml_file, xml_directory)
 
-            xml_directory = 'D:\\AI_SVT_Training\\annotations\\xmls\\'
-            os.chdir("D:\\AI_SVT_Training\\images")
+            xml_directory = 'D:\\Detection_training\\annotations\\xmls\\'
+            os.chdir("D:\\Detection_training\\images")
 
             filenames = []
             for filename in glob.glob('*.xml'):
@@ -1685,7 +1685,7 @@ def get_main_app(argv=[]):
         label_yposition = int(screensize[1] / 2)
 
         df1 = pd.DataFrame()
-        os.chdir('D:\AI_SVT_Training\images')  # JH: 확인할 경로 입력 필요
+        os.chdir('D:/Detection_training/images')  # JH: 확인할 경로 입력 필요
         for xmlfile in glob.glob('*xml'):
             df = pd.read_xml(xmlfile)
             df1 = pd.concat([df1, df])
